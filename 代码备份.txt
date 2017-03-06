@@ -1,0 +1,770 @@
+﻿#include <stdio.h>
+
+//北京时间转格林威治时间
+
+//int main()
+//{
+//	int bjt;
+//	int utc;
+//
+//	printf("请输入北京时间：");
+//	scanf_s("%d",&bjt);
+//
+//	if ((bjt/100-8)>=0)
+//	{
+//		printf("utc:%d", (bjt / 100-8) * 100 + bjt % 100);
+//	}
+//	else
+//	{
+//		printf("utc:%d", (bjt / 100 + 16) * 100 + bjt % 100);
+//	}
+//
+//	return 0;
+//}
+
+
+//N数倒序
+
+//int main()
+//{
+//	int x;
+//	int first=0;
+//	int t=0;
+//
+//	printf("请输入一个三位数：");
+//	scanf_s("%d", &x);
+//
+//	first = x % 10;
+//	t = first * 10;
+//	x /= 10;
+//
+//	while (x!=0)
+//	{
+//		first = x % 10;
+//		t = (t + first) * 10;
+//		x /= 10;
+//	}
+//
+//	printf("%d", t/10);
+//
+//	return 0;
+//}
+
+//奇偶数个数
+
+//int main()
+//{
+//	int x;
+//	int ou = 0;
+//	int ji = 0;
+//	int t;
+//
+//	printf("请输入一正整数，结束请输入-1。\n");
+//	scanf_s("%d", &x);
+//
+//	while (x!=-1)
+//	{	
+//		t = x % 2;
+//
+//		if (t==0)
+//		{
+//			ou = ou + 1;
+//		}
+//		else if (t == 1)
+//		{
+//			ji = ji + 1;
+//		}
+//
+//		printf("请输入一正整数，结束请输入-1。\n");
+//		scanf_s("%d", &x);
+//	}
+//
+//	printf("偶数有%d个，奇数有%d个", ou, ji);
+//
+//	return 0;
+//}
+
+//求第n个素数到第m个的和,外引flag做判断
+
+//int main()
+//{
+//		int flag;
+//		int count = 0;
+//		int sum = 0;
+//		int n;
+//		int m;
+//	
+//		printf("请输入n，m。\n");
+//		scanf_s("%d %d", &n, &m);
+//			
+//	for (int i = 2; count < m; i++) 
+//	{
+//		flag = 1;
+//	
+//		for (int a = 2; a<i; a++) 
+//		{
+//			if (i%a == 0) 
+//			{
+//				flag = 0;
+//			}
+//		}
+//		if (flag == 1) 
+//		{
+//			count++;
+//			if (count >= n)
+//			{
+//				sum = sum + i;
+//			}
+//		}
+//	}
+//		printf("和为%d\n", sum);
+//
+//	return 0;
+//}
+
+//自己定义函数，以求和函数为例
+
+//void sum(int begin, int end)
+//{
+//	int i = begin;
+//	int sum = 0;
+//	for (; i <= end; i++)
+//	{
+//		sum += i;
+//	}
+//	printf("%d\n", sum);
+//}
+//
+//int main()
+//{
+//	sum(1, 10);
+//	sum(20, 30);
+//	sum(35, 45);
+//
+//	return 0;
+//}
+
+//分解质因数.......
+
+//int pan_duan(int x)
+//{
+//	int flag = 1;
+//	int i;
+//	for ( i=2 ; i < x; i++)
+//	{
+//		if (x%i == 0)
+//		{
+//			flag = 0;
+//		}
+//	}
+//	return flag;         //flag=1为素数
+//}
+//
+//void fen_jie(int shu)
+//{
+//		for (int i = 2; i < shu; i++)
+//		{
+//			int flag = 1;
+//			for (int a = 2; a < i; a++)
+//			{
+//				if (i%a == 0)
+//				{
+//					flag = 0;
+//				}
+//			}
+//			if (flag == 1)
+//			{
+//				while (shu%i == 0)
+//				{
+//					printf("%dx", i);
+//					shu = shu / i;
+//					if ((pan_duan(shu) == 1) && (shu != 1))
+//					{
+//						printf("%d\n", shu);
+//						if ((pan_duan(shu) == 0)||(shu==i)) break;
+//					}
+//				}
+//				
+//			}
+//		}
+//}
+//
+//int main()
+//{
+//	int shu;
+//	scanf_s("%d", &shu);
+//
+//	if (pan_duan(shu) == 1)
+//	{
+//		printf("%d=%d\n", shu, shu);
+//	}
+//
+//	else if (pan_duan(shu) == 0)
+//	{
+//		printf("%d=", shu);
+//		fen_jie(shu);
+//	}
+//
+//	return 0;
+//}
+
+//数组简易应用初探;数组越界，int i[10]; i[9]=1; i[9]已是最后的数组，因为是从0开始数起。sizeof(a)/size(a[0])即为数组元素个数
+
+//int main()
+//{
+//	int x = 0;
+//	double sum = 0;
+//	int cnt = 0;
+//	int number[100];//定义数组
+//
+//	scanf_s("%d", &x);
+//
+//	while (x != -1)
+//	{
+//		number[cnt] = x;//对数组中的数赋值
+//		sum += x;
+//		cnt++;
+//		scanf_s("%d", &x);
+//	}
+//
+//	if (cnt > 0)
+//	{
+//		printf("%f\n", sum/cnt);
+//		int i;
+//		for (i = 0; i < cnt; i++)
+//		{
+//			if (number[i] > sum/cnt)//使用数组中的数
+//			{
+//				printf("%d\n", number[i]);//遍历数组
+//			}
+//		}
+//	}
+//
+//return 0;
+//}
+
+//0-9出现了多少次，数组来做
+
+//int main()
+//{
+//	const number = 10;
+//	int x = 0;
+//	int count[10];
+//	int i;
+//
+//	for ( i = 0; i < number; i++)
+//	{
+//		count[i] = 0;//把每一个count[]都初始化为0
+//	}
+//
+//	scanf_s("%d", &x);
+//
+//	while (x!=-1)
+//	{
+//		if (x >= 0 && x <= 9)
+//		{
+//			count[x]++;//整个count[]++，count[]是一个整体，在上一个for中初始化了为0
+//		}
+//		scanf_s("%d", &x);
+//	}
+//
+//	for ( i = 0; i < number; i++)
+//	{
+//		printf("%d:%d个\n", i, count[i]);//各自打印
+//	}
+//
+//return 0;
+//}
+
+
+//int search(int key, int a[], int length)
+//{
+//	int ret = -1;
+//
+//	int i;
+//	for ( i = 0; i < length; i++)
+//	{
+//		if (a[i] == key)
+//		{
+//			ret = i;
+//			break;
+//		}
+//	}
+//	return ret;
+//}
+//
+//int main()
+//{
+//	int a[] = { 2,4,6,7,1,3,5,7,9,11,13,23,14,32 };
+//	int x;
+//	int loc;
+//	printf("请输入一个数：");
+//  scanf_s("%d", &x);
+//	loc = search(x, a, sizeof(a) / sizeof(a[0]));
+//	if (loc!=-1)
+//		printf("%d在第%d个位置上\n", x, loc);
+//
+//	else
+//		printf("%d不存在\n", x);
+//
+//	return 0;
+//}
+
+
+//int isPrime(int x, int knownPrimes[], int numberOfKnownPrimes)//构造numberOfKnownPrimes以内的素数表
+//{
+//	int ret = 1;
+//	int i;
+//	for ( i = 0; i < numberOfKnownPrimes; i++)
+//	{
+//		if (x%knownPrimes[i] == 0)
+//		{
+//			ret = 0;
+//			break;
+//		}
+//	}
+//	return ret;
+//}
+//
+//int main()
+//{
+//	const int number = 100;
+//	int prime[100] = { 2 };
+//	int count = 1;
+//	int i = 3;
+//	while (count<number)
+//	{
+//		if (isPrime(i, prime, count))
+//		{
+//			prime[count++] = i;
+//		}
+//		{
+//			printf("i=%d\tcnt=%d\t", i, count);
+//			int i;
+//			for ( i = 0; i < number; i++)
+//			{
+//				printf("%d\t", prime[i]);
+//			}
+//			printf("\n");
+//		}
+//		i++;
+//	}
+//
+//	for ( i = 0; i < number; i++)
+//	{
+//		printf("%d", prime[i]);
+//		if ((i + 1) % 5) printf("\t");
+//		else printf("\n");
+//	}
+//
+//
+//	return 0;
+//}
+
+//从头开始，去掉2的倍数，去掉3的倍数，去掉5的倍数..............剩下来的就是素数
+
+//int main()
+//{
+//	const int maxnumber = 25;
+//	int isPrime[25] = {1};
+//	int x;
+//	int i;
+//	for ( x = 0; x <maxnumber; x++)
+//	{
+//		if (isPrime[x])
+//		{
+//			for ( i = 2; i*x < maxnumber; i++)
+//			{
+//				isPrime[i*x] = 0;
+//			}
+//		}
+//	}
+//	for ( i = 2; i < maxnumber; i++)
+//	{
+//		if (isPrime[i])
+//		{
+//			printf("%d\t", i);
+//		}
+//	}
+//	printf("\n");
+//
+//	return 0;
+//}
+
+//例2.4
+/*int main()
+{
+	double sign = -1.0;
+	double sum = 1.0;
+	double deno = 2.0;
+	double term;
+
+	while (deno<=100)
+	{
+		term = sign / deno;
+		sum = sum + term;
+		sign = -sign;
+		deno = deno + 1;
+	}
+
+	printf("sum=%lf", sum);
+
+	return 0;
+}*/
+
+//逗号运算符的应用，在for语句中
+
+//int man()
+//{
+//	int i, j;
+//	for (i = 0, j = 10; i<j; i++, j--)
+//		printf("i=%dj=%d\n", i, j);
+//
+//	return 0;
+//}
+
+//多项式输入，输出
+
+//int main(void)
+//{
+//	int array[100][2], num = 0, count = -1, sum = 0, o = 0;
+//	int collum = 2;
+//	//输入
+//	for (int i = 0; num != -1; i++)
+//	{
+//		for (int j = 0; j < 2; j++)
+//		{
+//			scanf_s("%d", &num);
+//			if (num == -1)
+//				break;
+//			array[i][j] = num;
+//		}
+//		count++;
+//	}
+//
+//	for (int i = 0; i < count; i++)
+//	{
+//		if (array[i][0] == -1)
+//			continue;
+//		//		sum = array[i][1];
+//		for (int j = i + 1; j < count; j++)
+//		{
+//			if (array[i][0] == array[j][0])
+//			{
+//				//				sum += array[j][1];
+//				array[i][1] += array[j][1];
+//				array[j][0] = -1;
+//			}
+//		}
+//
+//		/*		if (array[i][0] != 0)
+//		printf("%dx%d+", sum, array[i][0]);
+//		else if (array[i][0] == 0)
+//		printf("%d\n", sum);*/
+//	}
+//	//排序,二维数组以第一列排序，同时交换其余所有列
+//	for (int j = 0; j < count; j++)
+//		for (int i = 0; i < count - 1 - j; i++)
+//			if (array[i][0] < array[i + 1][0])
+//			{
+//				/*				o = array[i][0];							原始一个个来的程序
+//				array[i][0] = array[i + 1][0];
+//				array[i + 1][0] = o;
+//
+//				o = array[i][1];
+//				array[i][1] = array[i + 1][1];
+//				array[i + 1][1] = o;*/
+//				for (int c = 0; c < collum; c++)
+//				{
+//					o = array[i][c];
+//					array[i][c] = array[i + 1][c];
+//					array[i + 1][c] = o;
+//				}
+//			}
+//	//数组输出
+//	/*for (int i = 0; i < count; i++)
+//	{
+//	for (int j = 0; j < 2; j++)
+//	{
+//	printf("array[%d][%d]=%d\t", i, j, array[i][j]);
+//	}
+//	puts("\n");
+//	}*/
+//	for (int i = 0; array[i][0] != -1; i++)
+//	{
+//		if (array[i][0] != 0)
+//			printf("%dx%d+", array[i][1], array[i][0]);
+//		else
+//			printf("%d\n", array[i][1]);
+//	}
+//	return 0;
+//}
+//上题改
+//int main(void)
+//{
+//	int array[100][2], num = 0, count = -1, sum = 0, o = 0, stop = 0;
+//	int i = 0, j = 0, c = 0;
+//	int collum = 2;
+//
+//	for ( i = 0; stop != 2; i++)
+//	{
+//		for ( j = 0; j < 2; j++)
+//		{
+//			scanf("%d", &num);
+//			array[i][j] = num;
+//			if (num == 0)
+//				stop++;
+//		}
+//		count++;
+//	}
+//
+//	count++;
+//
+//	for ( i = 0; i < count; i++)
+//	{
+//		if (array[i][0] == -1)
+//			continue;
+//
+//		for ( j = i + 1; j < count; j++)
+//		{
+//			if (array[i][0] == array[j][0])
+//			{
+//
+//				array[i][1] += array[j][1];
+//				array[j][0] = -1;
+//			}
+//		}
+//	}
+//
+//	for ( j = 0; j < count - 1; j++)
+//		for ( i = 0; i < count - 1 - j; i++)
+//			if (array[i][0] < array[i + 1][0])
+//			{
+//				for ( c = 0; c < collum; c++)
+//				{
+//					o = array[i][c];
+//					array[i][c] = array[i + 1][c];
+//					array[i + 1][c] = o;
+//				}
+//			}
+//
+//	for ( i = 0; array[i][0] != -1; i++);
+//	count = i;
+//
+//	for ( i = 0; array[i][0] != -1; i++)
+//	{
+//		if ( i < count-1 )
+//		{
+//			if (array[i + 1][1] > 0 && array[i][0] != 1 )
+//				printf("%dx%d+", array[i][1], array[i][0]);
+//
+//			else if (array[i + 1][1] < 0 && array[i][0] != 1 )
+//				printf("%dx%d", array[i][1], array[i][0]);
+//
+//			else if(array[i + 1][1] > 0 && array[i][0] == 1 )
+//				printf("%dx+", array[i][1]);
+//
+//			else if(array[i + 1][1] < 0 && array[i][0] == 1 )
+//				printf("%dx", array[i][1]);
+//		}
+//		else if (i==count-1)
+//		{
+//			if( array[i][0] == 0 )
+//				printf("%d\n", array[i][1]);
+//			else
+//				printf("%dx%d\n", array[i][1], array[i][0]);
+//		}
+//	}
+//	return 0; 
+//}
+//精确计算小数
+//#include <time.h>
+//
+//int main(int argc, char const *argv[])
+//{
+//	clock_t start, finish;
+//	double duration;
+//
+//
+//	int b = 0, weishu = 0, shang = 0, count = 0;
+//
+//	scanf_s("%d/%d", &weishu, &b);
+//	start = clock();//计时开始
+//	printf("0.");
+////while与for两种形式，在计算16/19时while少2ms
+//	while (count != 200)
+//	{
+//		weishu *= 10;
+//		if (weishu<b)
+//		{
+//			weishu *= 10;
+//			printf("0");
+//			count++;
+//		}
+//		shang = weishu / b;
+//		weishu %= b;
+//		printf("%d", shang);
+//		if (weishu == 0)
+//			break;
+//		count++;
+//	}
+//
+//	for (; count != 200; count++)
+//	{
+//		weishu *= 10;
+//		if (weishu<b)
+//		{
+//			weishu *= 10;
+//			printf("0");
+//			count++;
+//		}
+//		shang = weishu / b;
+//		weishu %= b;
+//		printf("%d", shang);
+//		if (weishu == 0)
+//			break;
+//	}
+//
+//	printf("\n");
+//
+//	finish = clock();//计时结束
+//	duration = (double)(finish - start) / CLOCKS_PER_SEC;
+//	printf("Time: %fms\n", duration*1000);
+//
+//	return 0;
+//}
+//#include <time.h>
+//#include <stdio.h>
+//#include<Windows.h>
+//#include <string.h> 
+//#define ele 1000
+//int main() 
+//{
+//
+//	clock_t start, finish;
+//	double duration;
+//
+//
+//
+//	char c[ele];
+//	char *a, *p, *e, *d;
+//	int temp, len, m, s, h/*UTC时间*/, H/*北京时间*/, y/*y是校验值*/;
+//
+//	while (1)
+//	{
+//		scanf_s("%s", c, ele);
+//		start = clock();//计时开始
+//		if (!strcmp(c, "END"))  break; //输入END既结束
+//		if (strstr(c, "$GPRMC") == NULL) continue;
+////不含$GPRMC 则等待再次输入；strstr，在字符串里检索字符串；返回：在 haystack 中第一次出现 needle 字符串的位置，如果未找到则返回 null。
+//		a = c; //指针指向$
+//		a = strchr(a, ',') + 1; //指针指向第一个逗号后的0
+//		a = strchr(a, ',') + 1; //指针指向第二个逗号后的A
+//
+//		//如果未定位则等待再次输入
+//		if (a[0] != 'A') continue;
+//
+//		p = strrchr(c, '*') + 1; //指针从右查找到*，P指向其后的数字,比strstr多了一个R表示从右侧开始
+//		sscanf_s(p, "%x", &y); //将P的值，转换为16进制数(%x将其转换)，赋予Y
+//
+//		len = p - 1 - c - 1; //从*号到$号之间的字符个数
+//		e = c + 1; //$号后面的G开始
+//
+//		temp = e[0]; // temp = 'G';
+//		for (int i = 0; i<len - 1; i++)
+//		{
+//			temp ^= e[i + 1]; //将$和*之间所有的字符做^运算
+//		}
+//		if (temp % 65536 == y)
+//		{
+//			//UTC时间，hhmmss.sss格式
+//			d = strchr(c, ',') + 1; //指向第一个逗号后的数字
+//			sscanf_s(d, "%2d", &h); //把2位字符以整数形式写入h
+//			d += 2; //指针向后移动2位
+//			sscanf_s(d, "%2d", &m); //把2位字符以整数形式写入m
+//			d += 2; //指针向后移动2位
+//			sscanf_s(d, "%2d", &s); //把2位字符以整数形式写入s
+//
+//			//把UTC时间，还算成北京时间（UTC+8 东八区）
+//			if (h + 8 >= 24)
+//				H = h + 8 - 24;
+//			else
+//				H = h + 8;
+//		}
+//
+//	}
+//	printf("%02d:%02d:%02d\n", H, m, s);
+//	system("pause");
+//
+//	finish = clock();//计时结束
+//	duration = (double)(finish - start) / CLOCKS_PER_SEC;
+//	printf("Time: %fms\n", duration * 1000);
+//
+//	return 0;
+//}
+
+//打印X，用数组来做，讲需要打印的全部设为1，打印空格的为0，在判断01来打印
+
+//int Read(void);
+//int main() 
+//{
+//
+//	clock_t start, finish;
+//	double duration;
+//
+//	start = clock();//计时开始
+//
+//	int **array;
+//	int hang, i, j;
+//
+//	hang = Read();
+////初始化数组
+//	array = (int**)malloc(sizeof(int*)*hang);
+//	for (i = 0; i < hang; i++)
+//		array[i] = (int*)malloc(sizeof(int)*hang);
+////设为01
+//	for ( i = 0; i < hang; i++)
+//	{
+//		for (j = 0; j < hang; j++)
+//		{
+//			if ((i == j) || (i + j) == hang - 1)
+//				array[i][j] = 1;
+//			else
+//				array[i][j] = 0;
+//		}
+//	}
+////打印
+//	for ( i = 0; i < hang; i++)
+//	{
+//		for (j = 0; j < hang; j++)
+//		{
+//			if (array[i][j] == 1)
+//				printf("X");
+//			else if (array[i][j] == 0)
+//				printf(" ");
+//		}
+//		printf("\n");
+//	}
+//
+//	finish = clock();//计时结束
+//	duration = (double)(finish - start) / CLOCKS_PER_SEC;
+//	printf("Time: %fms\n", duration * 1000);
+//
+//	return 0;
+//}
+//
+//int Read(void)
+//{
+//	int hang = 0;
+//	FILE *fp = fopen("c:\\wenjian.txt", "r");
+//	if (fp)
+//	{
+//		fscanf(fp, "%d", &hang);
+//		printf("读入完毕\n");
+//		fclose(fp);
+//	}
+//	else
+//		printf("无法打开文件\n");
+//
+//	return hang;
+//}
